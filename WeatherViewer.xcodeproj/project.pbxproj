@@ -99,6 +99,13 @@
 		B7F2D81725CF60540093BD2F /* WeatherViewer */ = {
 			isa = PBXGroup;
 			children = (
+				B7F2D85125CF61C80093BD2F /* Views */,
+				B7F2D85025CF61C00093BD2F /* ViewModels */,
+				B7F2D84F25CF61BA0093BD2F /* Models */,
+				B7F2D84E25CF61B40093BD2F /* DataModels */,
+				B7F2D84D25CF61AB0093BD2F /* DataMappers */,
+				B7F2D84C25CF619D0093BD2F /* Services */,
+				B7F2D84B25CF61980093BD2F /* Helpers */,
 				B7F2D81825CF60540093BD2F /* AppDelegate.swift */,
 				B7F2D81A25CF60540093BD2F /* SceneDelegate.swift */,
 				B7F2D81C25CF60540093BD2F /* ViewController.swift */,
@@ -126,6 +133,55 @@
 				B7F2D83C25CF60550093BD2F /* Info.plist */,
 			);
 			path = WeatherViewerUITests;
+			sourceTree = "<group>";
+		};
+		B7F2D84B25CF61980093BD2F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B7F2D84C25CF619D0093BD2F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B7F2D84D25CF61AB0093BD2F /* DataMappers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataMappers;
+			sourceTree = "<group>";
+		};
+		B7F2D84E25CF61B40093BD2F /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		B7F2D84F25CF61BA0093BD2F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B7F2D85025CF61C00093BD2F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B7F2D85125CF61C80093BD2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
