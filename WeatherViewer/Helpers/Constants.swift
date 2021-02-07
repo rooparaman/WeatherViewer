@@ -8,8 +8,23 @@ struct Constants {
   static let openWeatherApiKey = "bb82e16ff45bd0461a35733a42a41b9c"
   static let currentLocationId = -1
   static let defaultMetricValue = "N/A"
+  static let myLocationLabelValue = "My Location"
+  
+  static let cityCellIdentifier = "cityWeatherCell"
+  static let cityCell = "cityCell"
   static let weatherDetailCellIdentifier = "weatherDetailCell"
   static let detailSegueIdentifier = "goToDetailSegue"
+  
+  static let propertyArray = [
+    "Temperature",
+    "Feels Like",
+    "Description",
+    "Min Temperature",
+    "Max Temperature",
+    "Pressure",
+    "Humidity"
+  ]
+
   
   enum unit : String {
     case temperature = " C"
@@ -24,5 +39,12 @@ struct Constants {
     case unauthorizedError = "Unauthorized"
     case accessError = "You do not have the access rights. Contact admin"
     case serverError = "An unexpected server error occurred."
+  }
+  
+  enum accessibilityIdentifiers : String {
+    case propertyLabel = "propLabel"
+    case valueLabel = "valueLabel"
+    case tempLabel = "tempLabel"
+    case cityLabel = "cityLabel"
   }
 }

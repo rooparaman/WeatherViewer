@@ -10,15 +10,7 @@ class WeatherDetailViewModel {
   var lat = 0.0
   var lng = 0.0
   let service: WeatherService = WeatherService()
-  let propertyArray = [
-    "Temperature",
-    "Feels Like",
-    "Description",
-    "Min Temperature",
-    "Max Temperature",
-    "Pressure",
-    "Humidity"
-  ]
+  let propertyArray = Constants.propertyArray
   var valueArray: Box<[String]> = Box([])
   
   init(city:CityModel) {
@@ -55,7 +47,6 @@ class WeatherDetailViewModel {
     }else{
      
       service.getWeatherWithCityId(for: cityId) {[weak self] (weather) in
-        print(weather)
         self?.setValues(weather: weather)
       } failureCompletion: {[weak self] (error) in
         self?.setError()

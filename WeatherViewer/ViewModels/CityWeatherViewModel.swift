@@ -14,6 +14,8 @@ class CityWeatherViewModel {
   let lng: Double
   
   init(name: String, id: Int, lat: Double, lng:Double) {
+    self.cityName.value = name
+    self.temperature.value = "Loading.."
     self.cityId = id
     self.lat = lat
     self.lng = lng

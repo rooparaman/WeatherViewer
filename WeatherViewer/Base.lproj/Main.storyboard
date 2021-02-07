@@ -17,24 +17,29 @@
                         <color key="backgroundColor" red="0.26199878329999998" green="0.56337857250000001" blue="0.56870309569999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cityWeatherCell" rowHeight="88" id="fVY-sV-vsN" customClass="CityWeatherCell" customModule="WeatherViewer" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cityWeatherCell" rowHeight="88" id="fVY-sV-vsN" customClass="CityWeatherCell" customModule="WeatherViewer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fVY-sV-vsN" id="dRa-iA-v2z">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="88"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eal-U0-8j1">
-                                            <rect key="frame" x="0.0" y="11" width="383" height="66"/>
+                                            <rect key="frame" x="0.0" y="11" width="414" height="66"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fR-YH-uPs">
-                                                    <rect key="frame" x="21" y="23" width="214" height="21"/>
+                                                    <rect key="frame" x="21" y="8" width="245" height="50"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="cityLabel"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="azV-XT-xmW"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G15-SL-W3b">
-                                                    <rect key="frame" x="293" y="23" width="82" height="21"/>
+                                                    <rect key="frame" x="324" y="9" width="82" height="49"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="tempLabel"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="82" id="ipK-VG-p46"/>
                                                     </constraints>
@@ -44,13 +49,14 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="G15-SL-W3b" secondAttribute="bottom" constant="22" id="3k6-gT-RpO"/>
-                                                <constraint firstAttribute="bottom" secondItem="0fR-YH-uPs" secondAttribute="bottom" constant="22" id="ASW-E0-0Ql"/>
+                                                <constraint firstAttribute="bottom" secondItem="G15-SL-W3b" secondAttribute="bottom" constant="8" id="3k6-gT-RpO"/>
+                                                <constraint firstAttribute="bottom" secondItem="0fR-YH-uPs" secondAttribute="bottom" constant="8" id="ASW-E0-0Ql"/>
                                                 <constraint firstItem="G15-SL-W3b" firstAttribute="leading" secondItem="0fR-YH-uPs" secondAttribute="trailing" constant="58" id="ccL-7Q-sid"/>
-                                                <constraint firstItem="G15-SL-W3b" firstAttribute="top" secondItem="Eal-U0-8j1" secondAttribute="top" constant="23" id="dHd-hK-oop"/>
+                                                <constraint firstItem="G15-SL-W3b" firstAttribute="top" secondItem="Eal-U0-8j1" secondAttribute="top" constant="9" id="dHd-hK-oop"/>
                                                 <constraint firstItem="0fR-YH-uPs" firstAttribute="leading" secondItem="Eal-U0-8j1" secondAttribute="leading" constant="21" id="e2G-1Y-eyK"/>
-                                                <constraint firstItem="0fR-YH-uPs" firstAttribute="top" secondItem="Eal-U0-8j1" secondAttribute="top" constant="23" id="kyz-GD-GrR"/>
+                                                <constraint firstItem="0fR-YH-uPs" firstAttribute="top" secondItem="Eal-U0-8j1" secondAttribute="top" constant="8" id="kyz-GD-GrR"/>
                                                 <constraint firstAttribute="trailing" secondItem="G15-SL-W3b" secondAttribute="trailing" constant="8" id="tqe-8q-Zdc"/>
+                                                <constraint firstItem="G15-SL-W3b" firstAttribute="height" secondItem="0fR-YH-uPs" secondAttribute="height" multiplier="0.98" id="vkd-La-ayQ"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -74,6 +80,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Weather Viewer" id="8DF-Ah-jeF">
+                        <barButtonItem key="backBarButtonItem" title="  " id="kAG-Wi-XIq"/>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="qok-S1-DZ0">
                             <connections>
                                 <segue destination="ugG-uh-4ti" kind="presentation" id="NGO-6o-Qk5"/>
@@ -88,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="818.84057971014499" y="-3.3482142857142856"/>
         </scene>
-        <!--Details-->
+        <!--Weather Details View Controller-->
         <scene sceneID="QOv-Kd-rxJ">
             <objects>
                 <tableViewController id="Fjf-5F-MOy" customClass="WeatherDetailsViewController" customModule="WeatherViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,6 +117,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG1-NB-qFs">
                                                     <rect key="frame" x="266" y="8" width="134" height="28"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="valueLabel"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="134" id="u3N-IA-VZw"/>
                                                     </constraints>
@@ -119,6 +127,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS9-Ll-fse">
                                                     <rect key="frame" x="8" y="4" width="217" height="37.5"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="propLabel"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -136,6 +145,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.26199878329999998" green="0.56337857250000001" blue="0.56870309569999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="6Sq-v6-c4f" firstAttribute="top" secondItem="Xqo-Eg-DZz" secondAttribute="top" id="I5u-O4-FlH"/>
                                         <constraint firstItem="6Sq-v6-c4f" firstAttribute="leading" secondItem="Xqo-Eg-DZz" secondAttribute="leading" id="JeA-OO-IOX"/>
@@ -143,6 +153,7 @@
                                         <constraint firstAttribute="bottom" secondItem="6Sq-v6-c4f" secondAttribute="bottom" constant="-0.5" id="acK-Qw-b2b"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.26199878329999998" green="0.56337857250000001" blue="0.56870309569999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="weatherParameterLabel" destination="yS9-Ll-fse" id="j4r-hM-mhE"/>
                                     <outlet property="weatherValueLabel" destination="JG1-NB-qFs" id="0xg-Q7-NXG"/>
@@ -154,7 +165,9 @@
                             <outlet property="delegate" destination="Fjf-5F-MOy" id="GpF-Kk-6Pe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Details" id="6Rm-Pz-e41"/>
+                    <navigationItem key="navigationItem" id="6Rm-Pz-e41">
+                        <barButtonItem key="backBarButtonItem" title=" " id="kse-UI-Lb5"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AjK-Vv-G9q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,7 +230,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w85-4t-EGO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="srr-1e-FIe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrow.backward" catalog="system" backIndicatorTransitionMaskImage="arrow.backward" id="srr-1e-FIe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -233,6 +246,7 @@
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

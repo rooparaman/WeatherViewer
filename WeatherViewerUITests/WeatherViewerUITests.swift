@@ -19,21 +19,28 @@ class WeatherViewerUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+  func testHomePage() throws {
+    // UI tests must launch the application that they test.
+    
+    let app = XCUIApplication()
+    app.launch()
+    let tablesQuery = app.tables
+    let tableCell = tablesQuery.cells.firstMatch
+    let exists = NSPredicate(format: "exists == true")
+    expectation(for: exists, evaluatedWith: tableCell, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+    
+    XCTAssertTrue(tablesQuery.cells.firstMatch.staticTexts["tempLabel"].exists)
+    XCTAssertTrue(tablesQuery.cells.firstMatch.staticTexts["cityLabel"].exists)
+    app.navigationBars["Weather Viewer"].buttons["add"].tap()
+    app.tables/*@START_MENU_TOKEN@*/.staticTexts["Brewster"]/*[[".cells.staticTexts[\"Brewster\"]",".staticTexts[\"Brewster\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+    
+    app.tables.cells.firstMatch.staticTexts["tempLabel"].tap()
+    XCTAssertTrue(tablesQuery.cells.firstMatch.staticTexts["propLabel"].exists)
+    XCTAssertTrue(tablesQuery.cells.firstMatch.staticTexts["valueLabel"].exists)
+    
+    app.navigationBars["Sydney"].buttons["Weather Viewer"].tap()
+    sleep(1)
+      
+  }
 }

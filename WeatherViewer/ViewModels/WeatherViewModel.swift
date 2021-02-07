@@ -9,9 +9,9 @@ class WeatherViewModel {
   
   func getDefaultCities() {
     self.cities.value = [
-      CityModel(id: 2147714, name: "Melbourne", lattitude: nil, longitude: nil),
+      CityModel(id: 2147714, name: "Sydney", lattitude: nil, longitude: nil),
       CityModel(id: 2174003, name: "Brisbane", lattitude: nil, longitude: nil),
-      CityModel(id: 4163971, name: "Sydney", lattitude: nil, longitude: nil)
+      CityModel(id: 4163971, name: "Melbourne", lattitude: nil, longitude: nil)
     ]
   }
 }

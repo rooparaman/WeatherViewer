@@ -39,6 +39,7 @@
 		B7F2D8C725CFE20A0093BD2F /* WeatherDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F2D8C625CFE20A0093BD2F /* WeatherDetailsViewController.swift */; };
 		B7F2D8CC25CFE3CB0093BD2F /* WeatherDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F2D8CB25CFE3CB0093BD2F /* WeatherDetailViewCell.swift */; };
 		B7F2D8D125CFF1280093BD2F /* UnitsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F2D8D025CFF1280093BD2F /* UnitsHelper.swift */; };
+		B7F2D8D625D02A7A0093BD2F /* WeatherViewerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F2D8D525D02A7A0093BD2F /* WeatherViewerModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		B7F2D8C625CFE20A0093BD2F /* WeatherDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewController.swift; sourceTree = "<group>"; };
 		B7F2D8CB25CFE3CB0093BD2F /* WeatherDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewCell.swift; sourceTree = "<group>"; };
 		B7F2D8D025CFF1280093BD2F /* UnitsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsHelper.swift; sourceTree = "<group>"; };
+		B7F2D8D525D02A7A0093BD2F /* WeatherViewerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewerModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				B7F2D83125CF60550093BD2F /* Info.plist */,
 				B7F2D87D25CF6DCA0093BD2F /* WeatherDataMapperTests.swift */,
 				B7F2D88225CF6EC50093BD2F /* mockData.json */,
+				B7F2D8D525D02A7A0093BD2F /* WeatherViewerModelTests.swift */,
 			);
 			path = WeatherViewerTests;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7F2D83025CF60550093BD2F /* WeatherViewerTests.swift in Sources */,
+				B7F2D8D625D02A7A0093BD2F /* WeatherViewerModelTests.swift in Sources */,
 				B7F2D87E25CF6DCA0093BD2F /* WeatherDataMapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

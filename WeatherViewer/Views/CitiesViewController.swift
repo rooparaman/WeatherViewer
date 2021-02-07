@@ -7,7 +7,6 @@ import CoreLocation
 class CitiesViewController: UIViewController {
   @IBOutlet weak var citiesTableView : UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
-  @IBOutlet weak var currentLocButton: UIButton!
   
   private var cities: [CityModel] = []
   private var searchedCities: [CityModel] = []
@@ -26,7 +25,6 @@ class CitiesViewController: UIViewController {
       self.citiesTableView.delegate = self
       self.citiesTableView.dataSource = self
       self.searchBar.delegate = self
-        // Do any additional setup after loading the view.
       
       
       viewModel.cities.bind {[weak self] (cities) in
@@ -44,17 +42,6 @@ class CitiesViewController: UIViewController {
       self.citiesTableView.reloadData()
     }
   }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -94,7 +81,7 @@ extension CitiesViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell")
+    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cityCell)
     if isSearching {
       cell?.textLabel?.text = searchedCities[indexPath.row].name
     } else {
@@ -125,7 +112,7 @@ extension CitiesViewController: CLLocationManagerDelegate {
     
   func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
     if ((manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse)) {
-      cities.insert(CityModel(id: Constants.currentLocationId, name: "My Location", lattitude: self.currentLocationCoordinates?.latitude ?? 0, longitude: self.currentLocationCoordinates?.latitude ?? 0), at: 0)
+      cities.insert(CityModel(id: Constants.currentLocationId, name: Constants.myLocationLabelValue, lattitude: self.currentLocationCoordinates?.latitude ?? 0, longitude: self.currentLocationCoordinates?.latitude ?? 0), at: 0)
       DispatchQueue.main.async {
         self.citiesTableView.reloadData()
       }
@@ -141,8 +128,6 @@ extension CitiesViewController: CLLocationManagerDelegate {
         if let location = locations.last {
             locationManager.stopUpdatingLocation()
             self.currentLocationCoordinates = location.coordinate
-            
-            print(location.coordinate)
         }
     }
     

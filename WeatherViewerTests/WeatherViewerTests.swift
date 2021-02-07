@@ -19,12 +19,14 @@ class WeatherViewerTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+  
+    func testCityWeatherViewModel() throws {
+      var cityName = ""
+      let viewModel = CityWeatherViewModel(name: "Singapore", id: 9000, lat: 0.0, lng: 0.0)
+      viewModel.cityName.bind { (name) in
+        cityName = name
+      }
+      XCTAssertEqual(cityName, "Singapore")
     }
 
 }

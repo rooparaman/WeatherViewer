@@ -28,5 +28,75 @@
       "lon": 146.866669,
       "lat": -29.950001
     }
+  },
+  {
+    "id": 2640358,
+    "name": "Perth",
+    "state": "",
+    "country": "GB",
+    "coord": {
+      "lon": -3.43139,
+      "lat": 56.395222
+    }
+  },
+  {
+    "id": 2178276,
+    "name": "Adelaide Lead",
+    "state": "",
+    "country": "AU",
+    "coord": {
+      "lon": 143.683334,
+      "lat": -37.066669
+    }
+  },
+  {
+    "id": 2172517,
+    "name": "Canberra",
+    "state": "",
+    "country": "AU",
+    "coord": {
+      "lon": 149.128067,
+      "lat": -35.283459
+    }
+  },
+  {
+    "id": 7839581,
+    "name": "Gold Coast",
+    "state": "",
+    "country": "AU",
+    "coord": {
+      "lon": 153.36055,
+      "lat": -27.97851
+    }
+  },
+  {
+    "id": 4538821,
+    "name": "Hobart",
+    "state": "OK",
+    "country": "US",
+    "coord": {
+      "lon": -99.093132,
+      "lat": 35.029499
+    }
+  },
+  {
+    "id": 3859521,
+    "name": "Darwin",
+    "state": "",
+    "country": "AR",
+    "coord": {
+      "lon": -65.76667,
+      "lat": -39.200001
+    }
+  },
+  {
+    "id": 4143834,
+    "name": "New Castle",
+    "state": "DE",
+    "country": "US",
+    "coord": {
+      "lon": -75.566307,
+      "lat": 39.66206
+    }
   }
 ]
