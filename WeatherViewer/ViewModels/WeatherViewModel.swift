@@ -5,10 +5,10 @@
 import Foundation
 
 class WeatherViewModel {
-  var cities: [CityModel] = []
+  var cities: Box<[CityModel]> = Box([])
   
-  init() {
-    self.cities = [
+  func getDefaultCities() {
+    self.cities.value = [
       CityModel(id: 4163971, name: "Sydney"),
       CityModel(id: 2147714, name: "Melbourne"),
       CityModel(id: 2174003, name: "Brisbane")

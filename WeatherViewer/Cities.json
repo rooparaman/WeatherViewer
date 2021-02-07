@@ -1,0 +1,32 @@
+[
+  {
+    "id": 2174117,
+    "name": "Brewster",
+    "state": "",
+    "country": "AU",
+    "coord": {
+      "lon": 143.516663,
+      "lat": -37.48333
+    }
+  },
+  {
+    "id": 2174119,
+    "name": "Brewongle",
+    "state": "",
+    "country": "AU",
+    "coord": {
+      "lon": 149.716675,
+      "lat": -33.48333
+    }
+  },
+  {
+    "id": 2174123,
+    "name": "Brewarrina",
+    "state": "",
+    "country": "AU",
+    "coord": {
+      "lon": 146.866669,
+      "lat": -29.950001
+    }
+  }
+]

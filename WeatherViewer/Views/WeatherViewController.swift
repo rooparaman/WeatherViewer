@@ -6,30 +6,40 @@ import UIKit
 
 class WeatherViewController: UITableViewController {
 
-  private var viewModel: WeatherViewModel = WeatherViewModel()
+  var viewModel: WeatherViewModel = WeatherViewModel()
   private var cityWeatherItems : [WeatherModel] = []
   private var cities: [CityModel] = []
+  private var fetchTimer: Timer?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.cities = viewModel.cities
-    DispatchQueue.main.async {
-            self.tableView.reloadData()
-          }
-//    viewModel.cities.bind {[weak self] (cities) in
-//      guard let self = self else { return }
-//      self.cities = cities
-//      DispatchQueue.main.async {
-//        self.tableView.reloadData()
-//      }
-//
-//    }
-
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem
+    viewModel.cities.bind {[weak self] (cities) in
+      guard let self = self else { return }
+      self.cities = cities
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
+    }
+    viewModel.getDefaultCities()
+    
+  }
+  
+  @objc func runTimedFetch() {
+    DispatchQueue.main.async {
+      self.tableView.reloadData()
+    }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    if fetchTimer == nil {
+      fetchTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedFetch), userInfo: nil, repeats: true)
+    }
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    fetchTimer?.invalidate()
+    fetchTimer = nil
   }
   
   // MARK: - Table view data source

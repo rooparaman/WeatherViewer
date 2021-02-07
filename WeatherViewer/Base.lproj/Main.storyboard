@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,6 +65,7 @@
                                 <connections>
                                     <outlet property="cityLabel" destination="0fR-YH-uPs" id="gWx-Im-5xe"/>
                                     <outlet property="tempLabel" destination="G15-SL-W3b" id="Zow-HP-YH3"/>
+                                    <segue destination="jK1-KT-mjY" kind="show" identifier="detailSegue" id="Akk-6A-YzY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -75,7 +77,7 @@
                     <navigationItem key="navigationItem" title="Weather Viewer" id="8DF-Ah-jeF">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="qok-S1-DZ0">
                             <connections>
-                                <segue destination="RIW-De-HQH" kind="presentation" id="QYE-Hy-Cyg"/>
+                                <segue destination="ugG-uh-4ti" kind="presentation" id="NGO-6o-Qk5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -84,33 +86,70 @@
             </objects>
             <point key="canvasLocation" x="818.84057971014499" y="-3.3482142857142856"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Tn3-7U-wWr">
+        <!--View Controller-->
+        <scene sceneID="xlc-8r-Nkh">
             <objects>
-                <tableViewController id="RIW-De-HQH" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LyW-2e-YAC">
+                <viewController id="jK1-KT-mjY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6pG-VV-5y2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Tb0-R6-aRd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ysj-D6-a2M"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBP-eg-VjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="826" y="646"/>
+        </scene>
+        <!--Cities View Controller-->
+        <scene sceneID="HY3-AM-4T4">
+            <objects>
+                <viewController id="ugG-uh-4ti" customClass="CitiesViewController" customModule="WeatherViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Ks-5Y-E05">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YXh-k9-Mgy">
+                                <rect key="frame" x="0.0" y="61" width="414" height="747"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="sAI-Pr-hk9">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sAI-Pr-hk9" id="FZX-EW-Brs">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HHB-nq-7fg">
+                                <rect key="frame" x="10" y="5" width="394" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VnC-CR-Kxc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cVx-2n-jCZ">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cVx-2n-jCZ" id="dKM-kh-WSk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="RIW-De-HQH" id="7bc-Ve-dYI"/>
-                            <outlet property="delegate" destination="RIW-De-HQH" id="685-WU-zpi"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TLQ-8A-1fY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="HHB-nq-7fg" firstAttribute="top" secondItem="VnC-CR-Kxc" secondAttribute="top" constant="5" id="45m-5r-i61"/>
+                            <constraint firstItem="HHB-nq-7fg" firstAttribute="leading" secondItem="VnC-CR-Kxc" secondAttribute="leading" constant="10" id="6s5-bR-EWU"/>
+                            <constraint firstItem="VnC-CR-Kxc" firstAttribute="bottom" secondItem="YXh-k9-Mgy" secondAttribute="bottom" id="Kq1-iD-1PA"/>
+                            <constraint firstItem="YXh-k9-Mgy" firstAttribute="leading" secondItem="VnC-CR-Kxc" secondAttribute="leading" id="UmF-PB-vgK"/>
+                            <constraint firstItem="VnC-CR-Kxc" firstAttribute="trailing" secondItem="HHB-nq-7fg" secondAttribute="trailing" constant="10" id="Xz3-6F-krw"/>
+                            <constraint firstItem="YXh-k9-Mgy" firstAttribute="top" secondItem="HHB-nq-7fg" secondAttribute="bottom" id="aV4-OE-6F3"/>
+                            <constraint firstItem="YXh-k9-Mgy" firstAttribute="width" secondItem="VnC-CR-Kxc" secondAttribute="width" id="oTE-0c-0tj"/>
+                            <constraint firstItem="VnC-CR-Kxc" firstAttribute="trailing" secondItem="YXh-k9-Mgy" secondAttribute="trailing" id="om0-eY-ofV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="citiesTableView" destination="YXh-k9-Mgy" id="c3e-dj-Zyk"/>
+                        <outlet property="searchBar" destination="HHB-nq-7fg" id="04D-2J-Qd0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gDI-IJ-DuO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="-3"/>
+            <point key="canvasLocation" x="1634.7826086956522" y="11.383928571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qL6-uq-5ur">
