@@ -13,8 +13,8 @@ struct WeatherDataMapper {
       
       let decodedData = try decoder.decode(WeatherDataModel.self, from: weatherData)
       let weather = WeatherModel(location: decodedData.name,
-                                 id: decodedData.weather.id,
-                                 description: decodedData.weather.description,
+                                 id: decodedData.id,
+                                 description: decodedData.weather.first?.description ?? "",
                                  temperature: decodedData.main.temp,
                                  temperatureFeel: decodedData.main.feels_like,
                                  temperatureMin: decodedData.main.temp_min,
@@ -24,6 +24,7 @@ struct WeatherDataMapper {
       
       return weather
     } catch {
+      print(error)
       return nil
     }
   }

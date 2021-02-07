@@ -5,8 +5,9 @@
 import Foundation
 struct WeatherDataModel: Codable {
   let name: String
+  let id: Int
   let main: Main
-  let weather: WeatherData
+  let weather: [WeatherData]
 }
 
 struct Main: Codable {
@@ -20,5 +21,4 @@ struct Main: Codable {
 
 struct WeatherData: Codable {
   let description: String
-  let id: Int
 }

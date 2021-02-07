@@ -9,9 +9,9 @@ struct WeatherService {
   private let dataMapper = WeatherDataMapper()
   
   //Service function to get the current weather details
-  func getCurrentWeather(successCompletion: @escaping(WeatherModel)-> (), failureCompletion: @escaping(CustomError)-> ()){
-    //TODO:need to get api key
-    apiService.get(with: Constants.currentWeatherUrl) { (result) in
+  func getCurrentWeather(for cityId: Int, successCompletion: @escaping(WeatherModel)-> (), failureCompletion: @escaping(CustomError)-> ()){
+    let urlString = "\(Constants.currentWeatherUrl)&id=\(cityId)"
+    apiService.get(with: urlString) { (result) in
       switch result {
       case .failure(let error):
         failureCompletion(error)

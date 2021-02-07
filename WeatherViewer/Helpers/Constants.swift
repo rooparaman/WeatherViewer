@@ -4,7 +4,8 @@
 
 import Foundation
 struct Constants {
-  static let currentWeatherUrl = ""
+  static let currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?appid=bb82e16ff45bd0461a35733a42a41b9c&units=metric"
+  static let openWeatherApiKey = "bb82e16ff45bd0461a35733a42a41b9c"
   enum error : String {
     case dataMappingError = "Data is corrupt. Please contact admin"
     case networkError = "Network error has occured. Please check your connection  and try again"
