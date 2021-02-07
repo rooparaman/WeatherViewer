@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +12,54 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPb-OS-d0s">
+                                <rect key="frame" x="67" y="357" width="280" height="192"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Viewer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8OL-CU-tFb">
+                                        <rect key="frame" x="53.5" y="143" width="173" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="173" id="F6a-Uj-QdX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Pwd-3q-LIt">
+                                        <rect key="frame" x="32" y="20" width="216" height="115"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="216" id="7Zc-xA-dnM"/>
+                                            <constraint firstAttribute="height" constant="115" id="KwY-iM-e6e"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="1eI-Zm-Phn"/>
+                                    <constraint firstAttribute="width" constant="280" id="8Xf-io-qlq"/>
+                                    <constraint firstAttribute="bottom" secondItem="8OL-CU-tFb" secondAttribute="bottom" constant="20" symbolic="YES" id="Cc6-6v-73j"/>
+                                    <constraint firstItem="8OL-CU-tFb" firstAttribute="top" secondItem="Pwd-3q-LIt" secondAttribute="bottom" constant="8" symbolic="YES" id="GWv-xY-0cE"/>
+                                    <constraint firstItem="Pwd-3q-LIt" firstAttribute="centerX" secondItem="DPb-OS-d0s" secondAttribute="centerX" id="abl-96-YxL"/>
+                                    <constraint firstItem="8OL-CU-tFb" firstAttribute="centerX" secondItem="Pwd-3q-LIt" secondAttribute="centerX" id="iUX-ZH-Kwo"/>
+                                    <constraint firstItem="Pwd-3q-LIt" firstAttribute="top" secondItem="DPb-OS-d0s" secondAttribute="top" constant="20" symbolic="YES" id="vm6-1b-rqh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.26199878329999998" green="0.56337857250000001" blue="0.56870309569999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="DPb-OS-d0s" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Be3-1q-yU0"/>
+                            <constraint firstItem="DPb-OS-d0s" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MSy-b5-cra"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LaunchIcon" width="80" height="80"/>
+    </resources>
 </document>
