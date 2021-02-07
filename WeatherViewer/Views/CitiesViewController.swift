@@ -75,7 +75,10 @@ extension CitiesViewController: UITableViewDelegate {
   
   private func dismissCurrentView(with city:CityModel){
     if let presenter = presentingViewController?.children[0] as? WeatherViewController {
-      presenter.viewModel.cities.value.append(city)
+      let i = presenter.viewModel.cities.value.firstIndex(where: { $0.id == city.id }) ?? -1
+      if (i < 0) {
+        presenter.viewModel.cities.value.append(city)
+      }
     }
     dismiss(animated: true, completion: nil)
   }
