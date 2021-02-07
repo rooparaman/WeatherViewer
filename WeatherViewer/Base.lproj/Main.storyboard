@@ -65,7 +65,6 @@
                                 <connections>
                                     <outlet property="cityLabel" destination="0fR-YH-uPs" id="gWx-Im-5xe"/>
                                     <outlet property="tempLabel" destination="G15-SL-W3b" id="Zow-HP-YH3"/>
-                                    <segue destination="jK1-KT-mjY" kind="show" identifier="detailSegue" id="Akk-6A-YzY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -81,26 +80,84 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Fjf-5F-MOy" kind="show" identifier="goToDetailSegue" id="rZe-CK-URq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGl-xg-Kda" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818.84057971014499" y="-3.3482142857142856"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="xlc-8r-Nkh">
+        <!--Details-->
+        <scene sceneID="QOv-Kd-rxJ">
             <objects>
-                <viewController id="jK1-KT-mjY" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6pG-VV-5y2">
+                <tableViewController id="Fjf-5F-MOy" customClass="WeatherDetailsViewController" customModule="WeatherViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tD5-Bu-U4q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Tb0-R6-aRd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Ysj-D6-a2M"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JBP-eg-VjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherDetailCell" rowHeight="45" id="Hnn-bQ-g3h" customClass="WeatherDetailViewCell" customModule="WeatherViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hnn-bQ-g3h" id="Xqo-Eg-DZz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Sq-v6-c4f">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG1-NB-qFs">
+                                                    <rect key="frame" x="266" y="8" width="134" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="134" id="u3N-IA-VZw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS9-Ll-fse">
+                                                    <rect key="frame" x="8" y="4" width="217" height="37.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="JG1-NB-qFs" firstAttribute="leading" secondItem="yS9-Ll-fse" secondAttribute="trailing" constant="41" id="3vW-fF-lwt"/>
+                                                <constraint firstItem="yS9-Ll-fse" firstAttribute="top" secondItem="6Sq-v6-c4f" secondAttribute="top" constant="4" id="98r-f3-2jq"/>
+                                                <constraint firstAttribute="bottom" secondItem="yS9-Ll-fse" secondAttribute="bottom" constant="4" id="ZAs-ig-dxE"/>
+                                                <constraint firstItem="JG1-NB-qFs" firstAttribute="top" secondItem="6Sq-v6-c4f" secondAttribute="top" constant="8" id="byg-cK-8Dn"/>
+                                                <constraint firstAttribute="bottom" secondItem="JG1-NB-qFs" secondAttribute="bottom" constant="9.5" id="fKx-An-oTr"/>
+                                                <constraint firstItem="yS9-Ll-fse" firstAttribute="leading" secondItem="6Sq-v6-c4f" secondAttribute="leading" constant="8" id="rp9-Oe-4e0"/>
+                                                <constraint firstAttribute="trailing" secondItem="JG1-NB-qFs" secondAttribute="trailing" constant="14" id="zpS-0g-Jci"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6Sq-v6-c4f" firstAttribute="top" secondItem="Xqo-Eg-DZz" secondAttribute="top" id="I5u-O4-FlH"/>
+                                        <constraint firstItem="6Sq-v6-c4f" firstAttribute="leading" secondItem="Xqo-Eg-DZz" secondAttribute="leading" id="JeA-OO-IOX"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Sq-v6-c4f" secondAttribute="trailing" id="QDk-52-NwN"/>
+                                        <constraint firstAttribute="bottom" secondItem="6Sq-v6-c4f" secondAttribute="bottom" constant="-0.5" id="acK-Qw-b2b"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="weatherParameterLabel" destination="yS9-Ll-fse" id="j4r-hM-mhE"/>
+                                    <outlet property="weatherValueLabel" destination="JG1-NB-qFs" id="0xg-Q7-NXG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fjf-5F-MOy" id="UB0-s8-n3u"/>
+                            <outlet property="delegate" destination="Fjf-5F-MOy" id="GpF-Kk-6Pe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Details" id="6Rm-Pz-e41"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AjK-Vv-G9q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826" y="646"/>
+            <point key="canvasLocation" x="818.84057971014499" y="703.79464285714278"/>
         </scene>
         <!--Cities View Controller-->
         <scene sceneID="HY3-AM-4T4">

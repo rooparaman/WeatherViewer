@@ -16,7 +16,7 @@ class CityWeatherCell: UITableViewCell {
   }
   
   func configure(city:CityModel){
-    self.viewModel = CityWeatherViewModel(name: city.name, id: city.id)
+    self.viewModel = CityWeatherViewModel(name: city.name, id: city.id, lat: city.lattitude ?? 0, lng: city.longitude ?? 0)
     
     
     viewModel.fetchWeather(cityId: city.id, lat: city.lattitude ?? 0, lng: city.longitude ?? 0)

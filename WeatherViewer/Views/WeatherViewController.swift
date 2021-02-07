@@ -10,6 +10,7 @@ class WeatherViewController: UITableViewController {
   private var cityWeatherItems : [WeatherModel] = []
   private var cities: [CityModel] = []
   private var fetchTimer: Timer?
+  private var selectedCity: CityModel?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -17,18 +18,20 @@ class WeatherViewController: UITableViewController {
     viewModel.cities.bind {[weak self] (cities) in
       guard let self = self else { return }
       self.cities = cities
-      DispatchQueue.main.async {
-        self.tableView.reloadData()
-      }
+      self.reloadTable()
     }
     viewModel.getDefaultCities()
     
   }
   
-  @objc func runTimedFetch() {
+  private func reloadTable(){
     DispatchQueue.main.async {
       self.tableView.reloadData()
     }
+  }
+  
+  @objc func runTimedFetch() {
+    reloadTable()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +66,10 @@ class WeatherViewController: UITableViewController {
     return cell
   }
   
-  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    selectedCity = cities[indexPath.row]
+    performSegue(withIdentifier: Constants.detailSegueIdentifier, sender: nil)
+  }
   /*
    // Override to support conditional editing of the table view.
    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -99,14 +105,20 @@ class WeatherViewController: UITableViewController {
    }
    */
   
-  /*
+  
    // MARK: - Navigation
    
    // In a storyboard-based application, you will often want to do a little preparation before navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    // Get the new view controller using segue.destination.
    // Pass the selected object to the new view controller.
+    if segue.identifier == Constants.detailSegueIdentifier {
+      if let destinationVC = segue.destination as? WeatherDetailsViewController{
+        destinationVC.viewModel = WeatherDetailViewModel(city: selectedCity!)
+      }
+    }
+    
    }
-   */
+   
   
 }
