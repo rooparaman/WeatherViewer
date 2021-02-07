@@ -6,4 +6,6 @@ import Foundation
 struct CityModel {
   let id: Int
   let name: String
+  var lattitude: Double?
+  var longitude: Double?
 }

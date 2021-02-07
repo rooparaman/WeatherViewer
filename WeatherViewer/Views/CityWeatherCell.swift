@@ -18,14 +18,18 @@ class CityWeatherCell: UITableViewCell {
   func configure(city:CityModel){
     self.viewModel = CityWeatherViewModel(name: city.name, id: city.id)
     
-    self.cityLabel.text = viewModel.cityName
-    viewModel.fetchWeather(cityId: viewModel.cityId)
+    
+    viewModel.fetchWeather(cityId: city.id, lat: city.lattitude ?? 0, lng: city.longitude ?? 0)
     viewModel.temperature.bind {[weak self] (temp) in
       DispatchQueue.main.async {
         self?.tempLabel.text = temp
       }
     }
-    
+    viewModel.cityName.bind {[weak self] (name) in
+      DispatchQueue.main.async {
+        self?.cityLabel.text = name
+      }
+    }
     
   }
   

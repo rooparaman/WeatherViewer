@@ -13,7 +13,7 @@ struct CityDataMapper {
       var cities: [CityModel] = []
      
       for data in decodedData {
-        cities.append(CityModel(id: data.id, name: data.name))
+        cities.append(CityModel(id: data.id, name: data.name, lattitude: nil, longitude: nil))
       }
       
       return cities

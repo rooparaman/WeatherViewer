@@ -5,7 +5,7 @@
 import Foundation
 
 class CitiesViewModel {
-  var cities: Box<[CityModel]> = Box([CityModel(id: 0000, name: "My Location")])
+  var cities: Box<[CityModel]> = Box([])
   let dataMapper = CityDataMapper()
   
   func getCities(){

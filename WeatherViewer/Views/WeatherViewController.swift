@@ -33,7 +33,7 @@ class WeatherViewController: UITableViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     if fetchTimer == nil {
-      fetchTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedFetch), userInfo: nil, repeats: true)
+      fetchTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(runTimedFetch), userInfo: nil, repeats: true)
     }
   }
   

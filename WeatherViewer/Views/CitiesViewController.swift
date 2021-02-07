@@ -3,7 +3,7 @@
 // Using Swift 5.0
 
 import UIKit
-
+import CoreLocation
 class CitiesViewController: UIViewController {
   @IBOutlet weak var citiesTableView : UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
@@ -13,9 +13,16 @@ class CitiesViewController: UIViewController {
   private var searchedCities: [CityModel] = []
   private var isSearching = false
   private var viewModel = CitiesViewModel()
+  private let locationManager = CLLocationManager()
+  private var currentLocationCoordinates: CLLocationCoordinate2D?
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      locationManager.delegate = self
+      locationManager.requestWhenInUseAuthorization()
+      locationManager.requestLocation()
+      
+      
       self.citiesTableView.delegate = self
       self.citiesTableView.dataSource = self
       self.searchBar.delegate = self
@@ -53,12 +60,22 @@ class CitiesViewController: UIViewController {
 
 extension CitiesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let selectedCity = isSearching ? searchedCities[indexPath.row] : cities[indexPath.row]
-    // Close keyboard when you select cell
-    self.searchBar.searchTextField.endEditing(true)
     
+      var selectedCity = isSearching ? searchedCities[indexPath.row] : cities[indexPath.row]
+      // Close keyboard when you select cell
+      self.searchBar.searchTextField.endEditing(true)
+      if selectedCity.id == Constants.currentLocationId {
+        selectedCity.lattitude = currentLocationCoordinates?.latitude
+        selectedCity.longitude = currentLocationCoordinates?.longitude
+        dismissCurrentView(with: selectedCity)
+      }else{
+        dismissCurrentView(with: selectedCity)
+      }
+  }
+  
+  private func dismissCurrentView(with city:CityModel){
     if let presenter = presentingViewController?.children[0] as? WeatherViewController {
-      presenter.viewModel.cities.value.append(selectedCity)
+      presenter.viewModel.cities.value.append(city)
     }
     dismiss(animated: true, completion: nil)
   }
@@ -99,6 +116,36 @@ extension CitiesViewController: UISearchBarDelegate {
     searchBar.text = ""
     citiesTableView.reloadData()
   }
+}
+
+extension CitiesViewController: CLLocationManagerDelegate {
+    
+  func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    if ((manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse)) {
+      cities.insert(CityModel(id: Constants.currentLocationId, name: "My Location", lattitude: self.currentLocationCoordinates?.latitude ?? 0, longitude: self.currentLocationCoordinates?.latitude ?? 0), at: 0)
+      DispatchQueue.main.async {
+        self.citiesTableView.reloadData()
+      }
+      
+    }else {
+      cities = cities.filter {
+        $0.id != Constants.currentLocationId
+      }
+    }
+  }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            self.currentLocationCoordinates = location.coordinate
+            
+            print(location.coordinate)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
 }
 
 
